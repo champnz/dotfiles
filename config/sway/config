@@ -1,0 +1,297 @@
+set $mod Mod4
+
+set $left h
+set $down j
+set $up k
+set $right l
+
+set $term alacritty
+
+set $menu 'rofi -show drun -modi drun'
+
+set $ws1 1:T
+set $ws2 2:W
+set $ws3 3:F
+set $ws4 4:M
+set $ws5 5:D
+set $ws6 6:G
+set $ws7 7:I
+set $ws8 8:C
+set $ws9 9:K
+set $ws10 10:S
+
+#####################
+##    Interface    ##
+#####################
+
+hide_edge_borders none
+
+font pango:Fira Mono 10
+
+output * bg $HOME/.config/sway/bg.jpg fill
+
+gaps outer 0
+gaps inner 0
+
+set $rosewater #f5e0dc
+set $flamingo  #f2cdcd
+set $pink      #f5c2e7
+set $mauve     #cba6f7
+set $red       #f38ba8
+set $maroon    #eba0ac
+set $peach     #fab387
+set $yellow    #f9e2af
+set $green     #a6e3a1
+set $teal      #94e2d5
+set $sky       #89dceb
+set $sapphire  #74c7ec
+set $blue      #89b4fa
+set $lavender  #b4befe
+set $text      #cdd6f4
+set $subtext1  #bac2de
+set $subtext0  #a6adc8
+set $overlay2  #9399b2
+set $overlay1  #7f849c
+set $overlay0  #6c7086
+set $surface2  #585b70
+set $surface1  #45475a
+set $surface0  #313244
+set $base      #1e1e2e
+set $mantle    #181825
+set $crust     #11111b
+
+# target                    title        bg        text        indicator     border
+client.focused              $mantle      $mauve    $mantle     $rosewater    $mauve
+client.focused_inactive     $overlay0    $base     $text       $rosewater    $overlay0
+client.unfocused            $overlay0    $base     $text       $rosewater    $overlay0
+client.urgent               $peach       $base     $peach      $overlay0     $peach
+client.placeholder          $overlay0    $base     $text       $overlay0     $overlay0
+client.background           $base
+
+title_align center
+titlebar_padding 1
+titlebar_border_thickness 0
+
+####################
+##    Behavior    ##
+####################
+
+workspace_auto_back_and_forth no
+
+focus_follows_mouse yes
+focus_on_window_activation smart
+
+# Use Mouse+$mod to drag floating windows
+floating_modifier $mod
+
+#####################
+##      Input      ##
+#####################
+
+input type:keyboard {
+    xkb_layout us,ir
+    xkb_options grp:rctrl_toggle
+    repeat_rate 40
+    repeat_delay 300
+}
+
+input "type:touchpad" {
+    dwt enabled
+    tap enabled
+    natural_scroll enabled
+    middle_emulation enabled
+    click_method clickfinger
+    scroll_method two_finger
+    pointer_accel 0.4
+}
+
+input "type:pointer" {
+    pointer_accel 0.2
+}
+
+#######################
+##    Keybindings    ##
+#######################
+
+bindsym $mod+Return exec $term
+
+bindsym $mod+Shift+q kill
+bindsym $mod+Shift+c reload
+
+# Log Out, Shutdown, Reboot
+bindsym $mod+Shift+p exec "systemctl poweroff"
+bindsym $mod+Shift+r exec "systemctl reboot"
+bindsym $mod+Shift+B exec swaylock
+
+# Layout Modes
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+f fullscreen toggle
+# bindsym $mod+f fullscreen
+
+bindsym $mod+u border none
+bindsym $mod+n border normal
+
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+s sticky toggle
+bindsym $mod+Shift+m move position center
+
+# Workspace Navigation
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+bindsym Mod1+Tab workspace next
+bindsym Mod1+Shift+Tab workspace prev
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+# Scratchpad
+bindsym $mod+minus scratchpad show
+bindsym $mod+Shift+minus move scratchpad
+
+# Split
+bindsym $mod+b splith
+bindsym $mod+v splitv
+
+# Focus
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+# Or use $mod+[up|down|left|right]
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+a focus parent
+bindsym $mod+space focus mode_toggle
+
+# Movement
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+l move right
+
+# Audio/Brightness controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+bindsym XF86MonBrightnessUp exec brightnessctl set 2+; exec notify-send 'brightness up'
+bindsym XF86MonBrightnessDown exec brightnessctl set 2-; exec notify-send 'brightness down'
+
+bindsym $mod+Shift+Up exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym $mod+Shift+Down exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym $mod+Shift+Right exec brightnessctl set 2+; exec notify-send 'brightness up'
+bindsym $mod+Shift+Left exec brightnessctl set 2-; exec notify-send 'brightness down'
+
+# Essential
+bindsym $mod+d exec $menu
+bindsym $mod+Shift+n exec swaync-client -t -sw
+# bindsym $mod+x exec brave-browser
+# bindsym $mod+t exec telegram-desktop
+# bindsym $mod+z exec hiddify
+# Better screenshot bindings (your current ones have a pipe issue)
+bindsym Print exec grim ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png && notify-send "Screenshot saved"
+bindsym Shift+Print exec grim -g "$(slurp)" ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png && notify-send "Area screenshot saved"
+bindsym Ctrl+Print exec grim -g "$(slurp)" - | wl-copy && notify-send "Screenshot copied to clipboard"
+
+############################
+##    Windows Behavior    ##
+############################
+
+for_window [class="^.*"] border pixel 0
+for_window [class="confirm"] floating disable
+for_window [class="dialog"] floating disable
+for_window [class="error"] floating disable
+
+# Better floating rules
+# for_window [app_id="pavucontrol"] floating enable, sticky enable
+# for_window [app_id="blueman-manager"] floating enable
+# for_window [app_id="nm-connection-editor"] floating enable
+# for_window [title="Picture-in-Picture"] floating enable, sticky enable
+# for_window [app_id="mpv"] floating enable
+# for_window [app_id="imv"] floating enable
+# for_window [title=".*[Ss]haring.*"] floating enable
+
+# Inhibit idle for fullscreen apps
+# for_window [class=".*"] inhibit_idle fullscreen
+# for_window [app_id=".*"] inhibit_idle fullscreen
+
+# assign [app_id="wezterm"] workspace $ws1
+# assign [app_id="thunar"] workspace $ws3
+# assign [app_id="brave-browser"] workspace $ws2
+# assign [app_id="telegram-desktop"] workspace $ws8
+# assign [app_id="vlc"] workspace $ws4
+# assign [app_id="hiddify"] workspace $ws5
+# assign [app_id="github-desktop"] workspace $ws6
+# assign [app_id="figma-linux"] workspace $ws4
+
+#################
+##    Modes    ##
+#################
+
+bindsym $mod+r mode "resize"
+mode "resize" {
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    # Ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+#####################
+##    Autostart    ##
+#####################
+
+exec swaync
+
+exec wl-paste -t text --watch clipman store
+
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+exec_always {
+    pkill swayidle
+    swayidle -w \
+        timeout 300 'swaylock -f -c 000000' \
+        timeout 600 'swaymsg "output * power off"' \
+        resume 'swaymsg "output * power on"' \
+        before-sleep 'swaylock -f -c 000000'
+}
+
+bar {
+     swaybar_command waybar
+}
+
+include /etc/sway/config.d/*

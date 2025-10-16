@@ -1,0 +1,95 @@
+/* === Catppuccin Mocha Palette === */
+@define-color base      #11111b;
+@define-color mantle    #181825;
+@define-color crust     #11111b;
+
+@define-color text      #cdd6f4;
+@define-color subtext0  #a6adc8;
+@define-color subtext1  #bac2de;
+
+@define-color surface0  #313244;
+@define-color surface1  #45475a;
+@define-color surface2  #585b70;
+
+@define-color overlay0  #6c7086;
+@define-color overlay1  #7f849c;
+@define-color overlay2  #9399b2;
+
+@define-color blue      #89b4fa;
+@define-color lavender  #b4befe;
+@define-color sapphire  #74c7ec;
+@define-color sky       #89dceb;
+@define-color teal      #94e2d5;
+@define-color green     #a6e3a1;
+@define-color yellow    #f9e2af;
+@define-color peach     #fab387;
+@define-color maroon    #eba0ac;
+@define-color red       #f38ba8;
+@define-color mauve     #cba6f7;
+@define-color pink      #f5c2e7;
+@define-color flamingo  #f2cdcd;
+@define-color rosewater #f5e0dc;
+
+* {
+  font-size: 16px;
+  border: none;
+  box-shadow: none;
+  margin: 0px;
+}
+
+window#waybar {
+  background-color: @base;
+  font-family: "Fira Mono";
+  color: @text;
+}
+
+#clock {
+  font-weight: 200;
+  color: @peach;
+}
+
+#workspaces {
+  background: transparent;
+  font-size: 24px;
+}
+
+#workspaces button {
+  background: transparent;
+  color: @text;
+  padding: 0px 10px;
+  border-radius: 0px;
+}
+
+#workspaces button.focused {
+  color: @peach;
+}
+
+#clock,
+#memory,
+#temperature,
+#pulseaudio,
+#backlight,
+#language,
+#network,
+#battery {
+  border-radius: 0px;
+  padding: 0px 10px;
+  min-width: 75px;
+}
+
+#clock {
+  background: linear-gradient(135deg, @yellow 0%, #fda085 100%);
+  color: @crust;
+  border-radius: 0px;
+  font-family: "Fira Mono", monospace;
+}
+
+#battery {
+  background: linear-gradient(135deg, @teal 0%, @lavender 100%);
+  color: @crust;
+  border-radius: 0px;
+}
+
+#tray {
+  margin: 0px 10px;
+}

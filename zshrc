@@ -27,13 +27,10 @@ prompt redhat
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-alias ls='ls --color=auto'
+alias ls='ls -lhA --group-directories-first --color=auto'
 alias grep='grep --color=auto'
 alias vim='nvim'
 alias time='/usr/bin/time'
-
-# Cargo
-export PATH="$HOME/.cargo/bin:$PATH"
 
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
@@ -43,4 +40,8 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # jlink
-export PATH="$HOME/Tools/JLink/JLink_Linux_V874a_x86_64:$PATH"
+export PATH="$HOME/Tools/JLink/JLink_Linux_V878_x86_64:$PATH"
+
+if [ -z "$WAYLAND_DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ] ; then
+    exec sway
+fi

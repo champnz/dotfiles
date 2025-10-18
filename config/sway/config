@@ -128,7 +128,6 @@ bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 bindsym $mod+f fullscreen toggle
-# bindsym $mod+f fullscreen
 
 bindsym $mod+u border none
 bindsym $mod+n border normal
@@ -210,10 +209,11 @@ bindsym $mod+Shift+Left exec brightnessctl set 2-; exec notify-send 'brightness 
 # Essential
 bindsym $mod+d exec $menu
 bindsym $mod+Shift+n exec swaync-client -t -sw
-# bindsym $mod+x exec brave-browser
+bindsym $mod+x exec librewolf
 # bindsym $mod+t exec telegram-desktop
 # bindsym $mod+z exec hiddify
-# Better screenshot bindings (your current ones have a pipe issue)
+
+# Better screenshot bindings
 bindsym Print exec grim ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png && notify-send "Screenshot saved"
 bindsym Shift+Print exec grim -g "$(slurp)" ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png && notify-send "Area screenshot saved"
 bindsym Ctrl+Print exec grim -g "$(slurp)" - | wl-copy && notify-send "Screenshot copied to clipboard"
@@ -229,12 +229,7 @@ for_window [class="error"] floating disable
 
 # Better floating rules
 # for_window [app_id="pavucontrol"] floating enable, sticky enable
-# for_window [app_id="blueman-manager"] floating enable
-# for_window [app_id="nm-connection-editor"] floating enable
 # for_window [title="Picture-in-Picture"] floating enable, sticky enable
-# for_window [app_id="mpv"] floating enable
-# for_window [app_id="imv"] floating enable
-# for_window [title=".*[Ss]haring.*"] floating enable
 
 # Inhibit idle for fullscreen apps
 # for_window [class=".*"] inhibit_idle fullscreen

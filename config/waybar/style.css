@@ -7,7 +7,7 @@
 @define-color lavender  #b4befe;
 @define-color teal      #94e2d5;
 @define-color yellow    #f9e2af;
-@define-color peach     #fab387;
+@define-color orange    #fe8019;
 
 * {
   font-size: 16px;
@@ -24,7 +24,6 @@ window#waybar {
 
 #clock {
   font-weight: 200;
-  color: @peach;
 }
 
 #workspaces {
@@ -40,7 +39,7 @@ window#waybar {
 }
 
 #workspaces button.focused {
-  color: @peach;
+  color: @orange;
 }
 
 #clock,

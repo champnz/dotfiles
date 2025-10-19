@@ -229,20 +229,20 @@ for_window [class="error"] floating disable
 
 # Better floating rules
 # for_window [app_id="pavucontrol"] floating enable, sticky enable
+for_window [app_id="localsend"] fullscreen enable
+for_window [app_id="librewolf"] fullscreen enable
+# for_window [app_id="telegram-desktop"] fullscreen enable
 # for_window [title="Picture-in-Picture"] floating enable, sticky enable
 
 # Inhibit idle for fullscreen apps
 # for_window [class=".*"] inhibit_idle fullscreen
 # for_window [app_id=".*"] inhibit_idle fullscreen
 
-# assign [app_id="wezterm"] workspace $ws1
 # assign [app_id="thunar"] workspace $ws3
 # assign [app_id="brave-browser"] workspace $ws2
 # assign [app_id="telegram-desktop"] workspace $ws8
 # assign [app_id="vlc"] workspace $ws4
 # assign [app_id="hiddify"] workspace $ws5
-# assign [app_id="github-desktop"] workspace $ws6
-# assign [app_id="figma-linux"] workspace $ws4
 
 #################
 ##    Modes    ##

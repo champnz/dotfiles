@@ -14,5 +14,5 @@ configuration {
 @import                          "./gruvbox-dark-hard.rasi"
 
 * {
-    font: "Fira Mono 14";
+    font: "Fira Mono 15";
 }

@@ -13,7 +13,7 @@
 
 * {
     /* Theme settings */
-    highlight: bold italic;
+    highlight: bold italic #d65d0e;
     scrollbar: true;
 
     /* Gruvbox dark colors */

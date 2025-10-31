@@ -89,24 +89,24 @@ floating_modifier $mod
 #####################
 
 input type:keyboard {
-    xkb_layout us,ir
-    xkb_options grp:rctrl_toggle
-    repeat_rate 40
-    repeat_delay 300
+	xkb_layout us,ir
+	xkb_options grp:rctrl_toggle
+	repeat_rate 40
+	repeat_delay 300
 }
 
 input "type:touchpad" {
-    dwt enabled
-    tap enabled
-    natural_scroll enabled
-    middle_emulation enabled
-    click_method clickfinger
-    scroll_method two_finger
-    pointer_accel 0.4
+	dwt enabled
+	tap enabled
+	natural_scroll enabled
+	middle_emulation enabled
+	click_method clickfinger
+	scroll_method two_finger
+	pointer_accel 0.4
 }
 
 input "type:pointer" {
-    pointer_accel 0.2
+	pointer_accel 0.2
 }
 
 #######################
@@ -250,20 +250,20 @@ for_window [app_id="librewolf"] fullscreen enable
 
 bindsym $mod+r mode "resize"
 mode "resize" {
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
+	bindsym $left resize shrink width 10px
+	bindsym $down resize grow height 10px
+	bindsym $up resize shrink height 10px
+	bindsym $right resize grow width 10px
 
-    # Ditto, with arrow keys
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
+	# Ditto, with arrow keys
+	bindsym Left resize shrink width 10px
+	bindsym Down resize grow height 10px
+	bindsym Up resize shrink height 10px
+	bindsym Right resize grow width 10px
 
-    # Return to default mode
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+	# Return to default mode
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
 }
 
 #####################
@@ -277,16 +277,18 @@ exec wl-paste -t text --watch clipman store
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 exec_always {
-    pkill swayidle
-    swayidle -w \
-        timeout 300 'swaylock -f -c 000000' \
-        timeout 600 'swaymsg "output * power off"' \
-        resume 'swaymsg "output * power on"' \
-        before-sleep 'swaylock -f -c 000000'
+	gsettings set org.gnome.desktop.interface enable-animations false
+
+	pkill swayidle
+	swayidle -w \
+		timeout 300 'swaylock -f -c 000000' \
+		timeout 600 'swaymsg "output * power off"' \
+		resume 'swaymsg "output * power on"' \
+		before-sleep 'swaylock -f -c 000000'
 }
 
 bar {
-     swaybar_command waybar
+	swaybar_command waybar
 }
 
 include /etc/sway/config.d/*

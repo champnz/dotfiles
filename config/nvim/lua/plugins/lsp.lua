@@ -71,6 +71,9 @@ NvimLspConfig.config = function()
 	vim.lsp.config['clangd'] = {
 		capabilities = capabilities,
 	}
+	vim.lsp.config['zls'] = {
+		capabilities = capabilities,
+	}
 	vim.lsp.config['pylsp'] = {
 		capabilities = capabilities,
 		settings = {
@@ -106,6 +109,7 @@ NvimLspConfig.config = function()
 	}
 
 	vim.lsp.enable('clangd')
+	vim.lsp.enable('zls')
 	vim.lsp.enable('pylsp')
 end
 

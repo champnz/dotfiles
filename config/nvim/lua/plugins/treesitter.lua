@@ -4,7 +4,7 @@ Plugin.build = ":TSUpdate"
 
 Plugin.config = function()
 	require("nvim-treesitter.configs").setup({
-		ensure_installed = { "c", "cpp", "rust", "python" },
+		ensure_installed = { "c", "cpp", "zig", "rust", "python" },
 		auto_install = false,
 		highlight = { enable = true, additional_vim_regex_highlighting = false },
 		indent = { enable = false },

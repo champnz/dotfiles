@@ -74,6 +74,18 @@ NvimLspConfig.config = function()
 	vim.lsp.config['zls'] = {
 		capabilities = capabilities,
 	}
+	vim.lsp.config['gopls'] = {
+		capabilities = capabilities,
+		settings = {
+			gopls = {
+				analyses = {
+					unusedparams = true,
+				},
+				staticcheck = true,
+				gofumpt = true,
+			},
+		},
+	}
 	vim.lsp.config['pylsp'] = {
 		capabilities = capabilities,
 		settings = {
@@ -110,6 +122,7 @@ NvimLspConfig.config = function()
 
 	vim.lsp.enable('clangd')
 	vim.lsp.enable('zls')
+	vim.lsp.enable('gopls')
 	vim.lsp.enable('pylsp')
 end
 

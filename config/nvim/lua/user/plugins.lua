@@ -31,6 +31,9 @@ lazy.opts = {
 		enabled = false, -- check for config file changes
 		notify = false,  -- get a notification when changes are found
 	},
+	rocks = {
+		enabled = false,
+	},
 }
 
 -- import plugins configs from nvim/lua/plugins/ folder

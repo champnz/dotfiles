@@ -9,11 +9,9 @@ Plugin.config = function()
 				winblend = 0,
 				align = "bottom",
 				relative = "win",
-			},
-		},
-		integration = {
-			["nvim-tree"] = {
-				enable = true,
+				avoid = {
+					"NvimTree",
+				},
 			},
 		},
 	})

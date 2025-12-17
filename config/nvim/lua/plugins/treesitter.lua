@@ -2,22 +2,16 @@ local Plugin = { "nvim-treesitter/nvim-treesitter" }
 
 Plugin.build = ":TSUpdate"
 
+Plugin.lazy = false
+
 Plugin.config = function()
-	require("nvim-treesitter.configs").setup({
-		ensure_installed = { "c", "cpp", "zig", "rust", "go", "python" },
-		auto_install = false,
-		highlight = { enable = true, additional_vim_regex_highlighting = false },
-		indent = { enable = false },
-		autotag = { enable = false },
-		incremental_selection = {
-			enable = true,
-			keymaps = {
-				init_selection = "<C-n>",
-				node_incremental = "<C-n>",
-				scope_incremental = "<C-s>",
-				node_decremental = "<C-m>",
-			}
-		}
+	require('nvim-treesitter').install({ "c", "cpp", "zig", "rust", "go", "python" })
+
+	vim.api.nvim_create_autocmd("FileType", {
+		pattern = { "c", "cpp", "zig", "rust", "go", "python" },
+		callback = function()
+			vim.treesitter.start()
+		end,
 	})
 end
 

@@ -71,9 +71,11 @@ NvimLspConfig.config = function()
 	vim.lsp.config['clangd'] = {
 		capabilities = capabilities,
 	}
+
 	vim.lsp.config['zls'] = {
 		capabilities = capabilities,
 	}
+
 	vim.lsp.config['gopls'] = {
 		capabilities = capabilities,
 		settings = {
@@ -86,6 +88,7 @@ NvimLspConfig.config = function()
 			},
 		},
 	}
+
 	vim.lsp.config['pylsp'] = {
 		capabilities = capabilities,
 		settings = {
@@ -124,6 +127,8 @@ NvimLspConfig.config = function()
 	vim.lsp.enable('zls')
 	vim.lsp.enable('gopls')
 	vim.lsp.enable('pylsp')
+
+	vim.lsp.inlay_hint.enable(true)
 end
 
 return { BlinkCmp, NvimLspConfig }

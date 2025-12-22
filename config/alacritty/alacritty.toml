@@ -1,9 +1,10 @@
-[window.dimensions]
-columns = 90
-lines = 28
-
 [window]
+decorations = "None"
 decorations_theme_variant = "Dark"
+
+[window.dimensions]
+columns = 100
+lines = 30
 
 [colors.primary]
 background = '#000000'

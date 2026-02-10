@@ -89,6 +89,16 @@ NvimLspConfig.config = function()
 		},
 	}
 
+	vim.lsp.config['ts_ls'] = {
+		capabilities = capabilities,
+		cmd = { 'bunx', 'typescript-language-server', '--stdio' },
+	}
+
+	vim.lsp.config['tailwindcss'] = {
+		capabilities = capabilities,
+		cmd = { 'bunx', 'tailwindcss-language-server', '--stdio' },
+	}
+
 	vim.lsp.config['pylsp'] = {
 		capabilities = capabilities,
 		settings = {
@@ -126,6 +136,8 @@ NvimLspConfig.config = function()
 	vim.lsp.enable('clangd')
 	vim.lsp.enable('zls')
 	vim.lsp.enable('gopls')
+	vim.lsp.enable('ts_ls')
+	vim.lsp.enable('tailwindcss')
 	vim.lsp.enable('pylsp')
 
 	vim.lsp.inlay_hint.enable(true)

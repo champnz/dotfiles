@@ -3,8 +3,8 @@ decorations = "None"
 decorations_theme_variant = "Dark"
 
 [window.dimensions]
-columns = 100
-lines = 30
+columns = 125
+lines = 36
 
 [colors.primary]
 background = '#000000'

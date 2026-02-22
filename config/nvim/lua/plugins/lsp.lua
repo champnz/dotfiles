@@ -89,9 +89,9 @@ NvimLspConfig.config = function()
 		},
 	}
 
-	vim.lsp.config['ts_ls'] = {
+	vim.lsp.config['vtsls'] = {
 		capabilities = capabilities,
-		cmd = { 'bunx', 'typescript-language-server', '--stdio' },
+		cmd = { 'bunx', 'vtsls', '--stdio' },
 	}
 
 	vim.lsp.config['tailwindcss'] = {
@@ -136,7 +136,7 @@ NvimLspConfig.config = function()
 	vim.lsp.enable('clangd')
 	vim.lsp.enable('zls')
 	vim.lsp.enable('gopls')
-	vim.lsp.enable('ts_ls')
+	vim.lsp.enable('vtsls')
 	vim.lsp.enable('tailwindcss')
 	vim.lsp.enable('pylsp')
 

@@ -91,12 +91,10 @@ NvimLspConfig.config = function()
 
 	vim.lsp.config['vtsls'] = {
 		capabilities = capabilities,
-		cmd = { 'bunx', 'vtsls', '--stdio' },
 	}
 
 	vim.lsp.config['tailwindcss'] = {
 		capabilities = capabilities,
-		cmd = { 'bunx', 'tailwindcss-language-server', '--stdio' },
 	}
 
 	vim.lsp.config['pylsp'] = {

@@ -1,10 +1,6 @@
 -- nvim-tree
 vim.keymap.set("n", "<F2>", require("nvim-tree.api").tree.toggle)
 
--- overseer
-vim.keymap.set("n", "<C-o>", "<cmd>OverseerToggle<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-l>", "<cmd>OverseerLoadBundle<CR>", { noremap = true, silent = true })
-
 -- toggleterm
 vim.keymap.set("n", "<F3>", "<cmd>ToggleTerm<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>tt", "<cmd>ToggleTerm direction=tab<CR>", { noremap = true, silent = true })

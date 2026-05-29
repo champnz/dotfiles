@@ -68,6 +68,9 @@ NvimLspConfig.config = function()
 		lineFoldingOnly = true,
 	}
 
+	-- cssls needs this
+	capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 	vim.lsp.config['clangd'] = {
 		capabilities = capabilities,
 	}
@@ -94,6 +97,14 @@ NvimLspConfig.config = function()
 	}
 
 	vim.lsp.config['tailwindcss'] = {
+		capabilities = capabilities,
+	}
+
+	vim.lsp.config['cssls'] = {
+		capabilities = capabilities,
+	}
+
+	vim.lsp.config['eslint'] = {
 		capabilities = capabilities,
 	}
 
@@ -136,9 +147,17 @@ NvimLspConfig.config = function()
 	vim.lsp.enable('gopls')
 	vim.lsp.enable('vtsls')
 	vim.lsp.enable('tailwindcss')
+	vim.lsp.enable('cssls')
+	vim.lsp.enable('eslint')
 	vim.lsp.enable('pylsp')
 
 	vim.lsp.inlay_hint.enable(true)
 end
 
-return { BlinkCmp, NvimLspConfig }
+local Rust = { "mrcjkb/rustaceanvim" }
+
+Rust.version = '^9'
+
+Rust.lazy = false -- This plugin is already lazy
+
+return { BlinkCmp, NvimLspConfig , Rust }

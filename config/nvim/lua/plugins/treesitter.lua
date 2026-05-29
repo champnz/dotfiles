@@ -14,11 +14,30 @@ Plugin.config = function()
 		"dart",
 		"javascript",
 		"typescript",
-		"python"
+		"tsx",
+		"css",
+		"html",
+		"python",
+		"markdown",
 	})
 
 	vim.api.nvim_create_autocmd("FileType", {
-		pattern = { "c", "cpp", "zig", "rust", "go", "dart", "javascript", "typescript", "python" },
+		pattern = {
+			"c",
+			"cpp",
+			"zig",
+			"rust",
+			"go",
+			"dart",
+			"javascript",
+			"typescript",
+			"javascriptreact",
+			"typescriptreact",
+			"css",
+			"html",
+			"python",
+			"markdown"
+		},
 		callback = function()
 			vim.treesitter.start()
 		end,

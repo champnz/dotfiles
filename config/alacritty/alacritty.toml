@@ -3,8 +3,8 @@ decorations = "None"
 decorations_theme_variant = "Dark"
 
 [window.dimensions]
-columns = 125
-lines = 36
+columns = 140
+lines = 50
 
 [colors.primary]
 background = '#000000'
@@ -34,7 +34,13 @@ white   = '#feffff'
 size = 12
 
 [font.normal]
-family = "NotoSansM Nerd Font"
+family = "Cousine Nerd Font"
 
-[keyboard]
-bindings = [{ key = "F11", action = "ToggleFullscreen" }]
+[[keyboard.bindings]]
+key = "F11"
+action = "ToggleFullscreen"
+
+[[keyboard.bindings]]
+key = "Q"
+mods = "Control"
+action = "Quit"

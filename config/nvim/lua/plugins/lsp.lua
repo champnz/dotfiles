@@ -62,12 +62,6 @@ NvimLspConfig.config = function()
 		py_path = vim.g.python3_host_prog
 	end
 
-	-- ufo requires this
-	capabilities.textDocument.foldingRange = {
-		dynamicRegistration = false,
-		lineFoldingOnly = true,
-	}
-
 	-- cssls needs this
 	capabilities.textDocument.completion.completionItem.snippetSupport = true
 

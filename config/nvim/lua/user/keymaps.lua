@@ -19,6 +19,9 @@ vim.keymap.set("n", "gr", vim.lsp.buf.references, {})
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {})
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
 vim.keymap.set("n", "<leader>F", vim.lsp.buf.format)
+vim.keymap.set("n", "<leader>n", function()
+	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+end, {})
 
 -- telescope
 local builtin = require("telescope.builtin")

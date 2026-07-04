@@ -44,7 +44,6 @@ Plugin.config = function()
 		extensions = {
 			"lazy",
 			"nvim-tree",
-			"overseer",
 			"toggleterm",
 		},
 	})

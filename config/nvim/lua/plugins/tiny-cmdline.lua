@@ -1,5 +1,7 @@
 local Plugin = { "rachartier/tiny-cmdline.nvim" }
 
+Plugin.lazy = false
+
 Plugin.config = function()
 	require('vim._core.ui2').enable({
 		enable = true,

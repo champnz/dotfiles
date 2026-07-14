@@ -2,9 +2,10 @@ local Plugin = { 'windwp/nvim-autopairs' }
 
 Plugin.event = "InsertEnter"
 
-Plugin.config = true
-
--- this is equivalent to setup({}) function
-Plugin.opts = {}
+Plugin.config = function()
+	require("nvim-autopairs").setup({
+		check_ts = true,
+	})
+end
 
 return Plugin
